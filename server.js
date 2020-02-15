@@ -24,11 +24,15 @@ var server = http.createServer(function(request, response) {
   if (path === "/") {
     let string = fs.readFileSync("./index.html", "utf8");
     response.statusCode = 200;
+    // 相应的第一部分
     response.setHeader("Content-Type", "text/html;charset=utf-8");
+    // 相应的第二部分
     response.write(string);
+    // 相应的第四部分
     response.end();
-  } else if (path === "/main.js") {
-    let string = fs.readFileSync("./main.js", "utf8");
+    // 相应结束
+  } else if (path === "/AJAX.js") {
+    let string = fs.readFileSync("./AJAX.js", "utf8");
     response.statusCode = 200;
     response.setHeader("Content-Type", "text/javascript;charset=utf-8");
     response.write(string);
